@@ -1,0 +1,38 @@
+WebStorage Wrapper
+
+説明
+  localStorageとsessionStorageを手軽に使える様にするラッパー
+  jQuery依存
+
+初期化
+  dbname = new webStorage(localStorage or sessionStorage)
+
+メソッド一覧
+  .get('key') => WebStorageから指定した一件のvalueオブジェクトを取得する
+  .getStr('key') => WebStorageから指定した一件のvalue文字列を取得する
+  .set('key', value Object) => 指定したkey文字列とvalueオブジェクトをWebStorageにセットする
+  .setStr('key', 'value') => 指定したkey文字列とvalue文字列をWebStorageにセットする
+  .del('key') => WebStorageからkey文字列で指定した一件を削除
+  .len() => WebStorageに登録されているデータの件数を整数値で取得
+  .key(index) => index番目のデータからkeyを取得する(0から開始)
+  .clear() => WebStorageの全件を削除
+  .all(function) => WebStorageの値を一件ずつfunction('key', value Object){...}として実行する
+  .find('keyword') => WebStorageの全データの中から、指定したkeyword文字列が含まれるvalue文字列を持つ全てのkey文字列を配列として返す
+  .copyJ2D('ulr') => 指定したurlのJSONファイルを取得し、その内容をWebStorageに格納する
+  .copyD2D() => もうひとつのWebStorageにコピーを作成する
+
+使用例
+  // localStorageの用意
+  ldb = new webStorage(localStorage);
+
+  // sessionStorageの用意
+  sdb = new webStorage(sessionStorage);
+
+  // localStorageにvalueオブジェクトを格納
+  ldb.set('key1', valueObject);
+
+  // sessionStorageにvalueテキストを格納
+  sdb.setStr(key2', 'value2');
+
+更新履歴
+  2013/10/06 公開
